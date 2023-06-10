@@ -9,7 +9,7 @@ const authMiddleware = async (req, res, next) => {
       throw Error("Invalid token format");
     }
 
-    const token = authHeader.split(" ")[i];
+    const token = authHeader.split(" ")[1];
 
     if (!token) {
       throw Error("No token provided");
