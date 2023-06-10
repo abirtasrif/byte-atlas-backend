@@ -24,6 +24,9 @@ app.get("/", (req, res) => {
 const port = process.env.PORT || 8080;
 const uri = process.env.MONGO_URI;
 
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
+//mongoose
+mongoose.connect(uri, { useUnifiedTopology: true }).then(() => {
+  app.listen(port, () => {
+    console.log(`Server running on port ${port}`);
+  });
 });
