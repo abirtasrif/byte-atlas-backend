@@ -8,6 +8,7 @@ const {
   deleteUser,
 } = require("../controllers/user");
 const authMiddleware = require("../middlewars/auth.middleware");
+const isAdmin = require("../middlewars/admin.middleware");
 
 //router
 const router = express.Router();
