@@ -7,28 +7,28 @@ const {
   updateUser,
   deleteUser,
 } = require("../controllers/user");
-const authMiddleware = require("../middlewars/auth.middleware");
-const isAdmin = require("../middlewars/admin.middleware");
+const authMiddleware = require("../middlewares/auth.middleware");
+const isAdmin = require("../middlewares/admin.middleware");
 
-//router
+// router
 const router = express.Router();
 
-//login router
+// login router
 router.post("/login", loginUser);
 
-//signup router
+// signup router
 router.post("/signup", signupUser);
 
-// // get all users
+// get all users
 router.get("/all", authMiddleware, isAdmin, getUsers);
 
 // get an user
 router.get("/:userId", authMiddleware, getUser);
 
-// // update an user
+// update an user
 router.patch("/:userId", authMiddleware, updateUser);
 
-// //delete an user
+// delete an user
 router.delete("/:userId", authMiddleware, deleteUser);
 
 module.exports = router;
